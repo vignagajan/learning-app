@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { FontAwesome5 } from '@expo/vector-icons';
+import StartScreen from './components/screens/StartScreen';
 
 let customFonts = {
   'Bold': require('./assets/fonts/Poppins-Bold.ttf'),
@@ -29,17 +30,7 @@ export default class App extends React.Component {
   render() {
     if (this.state.fontsLoaded) {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Platform Default</Text>
-          <Text style={{ fontFamily: 'Regular' }}>Regular</Text>
-          <Text style={{ fontFamily: 'Bold' }}>Bold</Text>
-          <Text style={{ fontFamily: 'Medium' }}>Medium</Text>
-          <Text style={{ fontFamily: 'SemiBold' }}>SemiBold</Text>
-          <FontAwesome5 name={'user'} size={20}/>
-          <FontAwesome5 name={'users'} size={20}/>
-          <FontAwesome5 name={'voicemail'} size={20} />
-          <FontAwesome5 name={'lock'} size={20} />
-        </View>
+        <StartScreen />
       );
     } else {
       return <AppLoading />;
