@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { Button,  } from 'react-native-elements' ; 
 
-const StartScreen = () => {
+const StartScreen = ({ navigation }) => {
     return (
         <View style={ styles.container }>
             <Image source={require('../../assets/images/start-image.png')}
@@ -13,10 +13,10 @@ const StartScreen = () => {
                     Online 
                 </Text>
                 <Text style={ styles.text }>
-                    Learing Platform
+                    Learning Platform
                 </Text>
             </View>
-            <Button buttonStyle={{height:50}} titleStyle={{ fontSize: 18}} containerStyle={styles.button} title="GET STARTED" /> 
+            <Button onPress ={() => navigation.navigate('Login')} buttonStyle={{height:50}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} title="GET STARTED" /> 
         </View>
     )
 }
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:'white',
     },
     image:{
         height:325,
