@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { Button,  } from 'react-native-elements' ; 
+import { Button,  } from 'react-native-elements'
 
 const StartScreen = ({ navigation }) => {
     return (

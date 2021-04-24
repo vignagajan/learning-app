@@ -3,12 +3,13 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
-import { FontAwesome5 } from '@expo/vector-icons';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from "@react-navigation/stack";
 
 import StartScreen from './components/screens/StartScreen';
 import LoginScreen from './components/screens/LoginScreen';
+import RegisterScreen from './components/screens/RegisterScreen';
+import ProfileScreen from './components/screens/ProfileScreen';
 
 let customFonts = {
   'Bold': require('./assets/fonts/Poppins-Bold.ttf'),
@@ -53,6 +54,8 @@ export default class App extends React.Component {
         <Stack.Navigator screenOptions={ globalScreenOptions }>
           <Stack.Screen name='Start' options={ StartScreenOptions } component={StartScreen} />
           <Stack.Screen name='Login' options={{ title:null,}} component={LoginScreen} />
+          <Stack.Screen name='Register' options={{ title:null,}} component={RegisterScreen} />
+          <Stack.Screen name='Profile' options={{ title:null,}} component={ProfileScreen} />
 
         </Stack.Navigator>
       </NavigationContainer>
