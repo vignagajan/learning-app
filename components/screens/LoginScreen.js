@@ -40,7 +40,7 @@ const LoginScreen = ({ navigation }) => {
                                 onChangeText={ (text) => setEmail(text)} 
                                 autofocus
                             />
-                            <FontAwesome name="user" size={25} style={ styles.icon } />
+                            <FontAwesome5 name="voicemail" size={25} style={ styles.icon } />
                             <Input 
                                 placeholder="Password" 
                                 type="password" 
@@ -51,7 +51,7 @@ const LoginScreen = ({ navigation }) => {
                             />   
                             <FontAwesome5 name="lock" size={25} style={ styles.icon } />
                         </View>
-                        <Button onPress ={() => navigation.navigate('Profile')} buttonStyle={{height:50}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} title="Sign In" /> 
+                        <Button onPress ={() => navigation.navigate('Profile')} buttonStyle={{height:50, borderRadius: 30,}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} title="Sign In" /> 
                         <View style={{flexDirection:'row', flexWrap:'wrap'}}>
                         <Text style={ styles.message}>Don’t have an account? </Text>
                         <TouchableOpacity onPress={() => navigation.navigate('Register')} >
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     form: {
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 80,
+        paddingTop: 40,
         borderTopLeftRadius:30,
         borderBottomRightRadius:-30,
 
@@ -102,18 +102,17 @@ const styles = StyleSheet.create({
     },
     icon:{ 
         color: '#C4C4C4', 
-        marginLeft:320,
-        marginTop:'-16%',
-        paddingBottom:'10%',
+        marginLeft:310,
+        marginTop:-60,
+        paddingBottom:30,
     },
     button: {
         marginTop:30,
         width:300, 
-        borderRadius: 30,
     },
     message:{
         fontFamily:'Regular',
-        color:'grey',
+        color:'#C4C4C4',
         fontSize:14,
         marginTop:10,
     },
