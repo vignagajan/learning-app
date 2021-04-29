@@ -1,7 +1,7 @@
-import firebase from "firebase";
+import * as firebase from "firebase";
 import "firebase/firestore";
 import "firebase/auth";
-import firebaseConfig from './env.js'
+import { firebaseConfig } from './env.js'
 
 let app;
 

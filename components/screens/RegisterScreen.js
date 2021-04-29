@@ -17,6 +17,19 @@ const RegisterScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const register = () => {
+        auth
+            .createUserWithEmailAndPassword(email,password)
+            .then((authUser) =>  {
+                authUser.user.updateProfile({
+                    displayName: fname+" "+lname,
+                    photoURL: imgURL,
+
+                });
+                console.log(authUser);
+            })
+    };
+
     return (
         <KeyboardAvoidingView 
             behavior={Platform.OS === "ios" ? "padding" : null} 
@@ -71,11 +84,12 @@ const RegisterScreen = ({ navigation }) => {
                                 value={password} 
                                 inputStyle={{ fontFamily:'Regular' }}
                                 onChangeText={ (text) => setPassword(text)} 
+                                onSubmitEditing={register}
                                 secureTextEntry
                             />   
                             <FontAwesome5 name="lock" size={25} style={ styles.icon } />
                         </View>
-                        <Button onPress ={() => navigation.navigate('Login')} buttonStyle={{height:50, borderRadius:30}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} type="outline" title="Register" /> 
+                        <Button onPress ={register} buttonStyle={{height:50, borderRadius:30}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} type="outline" title="Register" /> 
                     </View>
                 </View>
             </TouchableWithoutFeedback>

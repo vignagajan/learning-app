@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View,  Keyboard, KeyboardAvoidingView, ScrollView, Dimensions, SafeAreaView,TouchableWithoutFeedback, Platform, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import { Button, Input } from 'react-native-elements'
 import { PRIMARY, SECONDARY } from '../../assets/styles/colors.js'
 import { FontAwesome5 } from '@expo/vector-icons';
+
+import { auth } from "../../config/firebase";
 
 const screenHeight = Dimensions.get('screen').height;
 const screenWidth = Dimensions.get('window').width;
@@ -11,6 +13,20 @@ const LoginScreen = ({ navigation }) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser){
+                navigation.replace("Profile");
+            }
+        })
+        return unsubscribe;
+    }, []);
+
+    const signin = () => {
+        auth.signInWithEmailAndPassword(email, password)
+        .catch(error => alert(error));
+    };
 
     return (
         <KeyboardAvoidingView 
@@ -52,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
                             />   
                             <FontAwesome5 name="lock" size={25} style={ styles.icon } />
                         </View>
-                        <Button onPress ={() => navigation.navigate('Profile')} buttonStyle={{height:50, borderRadius: 30,}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} title="Sign In" /> 
+                        <Button onPress ={signin} buttonStyle={{height:50, borderRadius: 30,}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} title="Sign In" /> 
                         <View style={{flexDirection:'row', flexWrap:'wrap'}}>
                         <Text style={ styles.message}>Don’t have an account? </Text>
                         <TouchableOpacity onPress={() => navigation.navigate('Register')} >
