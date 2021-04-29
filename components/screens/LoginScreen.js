@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { View,  Keyboard, KeyboardAvoidingView, ScrollView, Dimensions, SafeAreaView,TouchableWithoutFeedback, Platform, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import { Button, Input } from 'react-native-elements'
-import { FontAwesome,FontAwesome5 } from '@expo/vector-icons';
+import { PRIMARY, SECONDARY } from '../../assets/styles/colors.js'
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const screenHeight = Dimensions.get('screen').height;
 const screenWidth = Dimensions.get('window').width;
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     text:{ 
         fontFamily: 'SemiBold', 
         fontSize: 30, 
-        color: '#2188dd',
+        color: PRIMARY,
     },
     form: {
         alignItems: "center",
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
         width: 350,
     },
     icon:{ 
-        color: '#C4C4C4', 
+        color:SECONDARY, 
         marginLeft:310,
         marginTop:-60,
         paddingBottom:30,
@@ -112,13 +113,13 @@ const styles = StyleSheet.create({
     },
     message:{
         fontFamily:'Regular',
-        color:'#C4C4C4',
+        color:SECONDARY,
         fontSize:14,
         marginTop:10,
     },
     register:{
         fontFamily:'Regular',
-        color:'#2188dd',
+        color:PRIMARY,
         fontSize:14,
         marginTop:10,
     },

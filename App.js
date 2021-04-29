@@ -3,6 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
+import { PRIMARY } from './assets/styles/colors.js'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -26,7 +27,7 @@ const globalScreenOptions = {
     shadowOpacity: 0,
     borderBottomWidth: 0,
   },
-  headerTintColor : '#2188dd',
+  headerTintColor : PRIMARY,
 };
 
 const StartScreenOptions =  {
