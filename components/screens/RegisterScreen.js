@@ -4,6 +4,8 @@ import { Button, Input } from 'react-native-elements'
 import { PRIMARY, SECONDARY } from '../../assets/styles/colors.js'
 import { FontAwesome,FontAwesome5 } from '@expo/vector-icons';
 
+import { auth } from "../../config/firebase";
+
 const screenHeight = Dimensions.get('screen').height;
 const screenWidth = Dimensions.get('window').width;
 
