@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { PRIMARY } from './assets/styles/colors.js'
@@ -56,7 +55,7 @@ export default class App extends React.Component {
           <Stack.Screen name='Start' options={ StartScreenOptions } component={StartScreen} />
           <Stack.Screen name='Login' options={{ title:null,}} component={LoginScreen} />
           <Stack.Screen name='Register' options={{ title:null,}} component={RegisterScreen} />
-          <Stack.Screen name='Profile' options={{ title:null,}} component={ProfileScreen} />
+          <Stack.Screen name='Profile' options={{ title:null,headerShown: false}} component={ProfileScreen} />
 
         </Stack.Navigator>
       </NavigationContainer>

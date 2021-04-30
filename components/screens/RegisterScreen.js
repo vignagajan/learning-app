@@ -1,13 +1,10 @@
-import React, { useState, } from 'react'
-import { View,  Keyboard, KeyboardAvoidingView, ScrollView, Dimensions, SafeAreaView,TouchableWithoutFeedback, Platform, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import React, { useState} from 'react'
+import { View,  Keyboard, KeyboardAvoidingView, ScrollView, SafeAreaView,TouchableWithoutFeedback, Platform, Text, StyleSheet, Image, } from 'react-native'
 import { Button, Input } from 'react-native-elements'
 import { PRIMARY, SECONDARY } from '../../assets/styles/colors.js'
 import { FontAwesome,FontAwesome5 } from '@expo/vector-icons';
 
 import { auth } from "../../config/firebase";
-
-const screenHeight = Dimensions.get('screen').height;
-const screenWidth = Dimensions.get('window').width;
 
 const RegisterScreen = ({ navigation }) => {
 
@@ -26,8 +23,9 @@ const RegisterScreen = ({ navigation }) => {
                     photoURL: imgURL,
 
                 });
-                console.log(authUser);
             })
+            .catch(error => alert(error));
+
     };
 
     return (
@@ -89,7 +87,7 @@ const RegisterScreen = ({ navigation }) => {
                             />   
                             <FontAwesome5 name="lock" size={25} style={ styles.icon } />
                         </View>
-                        <Button onPress ={register} buttonStyle={{height:50, borderRadius:30}} titleStyle={{ fontSize: 18, fontFamily:'Regular'}} containerStyle={styles.button} type="outline" title="Register" /> 
+                        <Button onPress ={register} buttonStyle={ styles.button } titleStyle={{ fontSize: 18, fontFamily:'Regular'}} type="outline" title="Register" /> 
                     </View>
                 </View>
             </TouchableWithoutFeedback>
@@ -140,6 +138,8 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop:30,
+        height:50, 
+        borderRadius:30,
         width:300, 
     },
     message:{

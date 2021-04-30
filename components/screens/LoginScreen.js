@@ -6,9 +6,6 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import { auth } from "../../config/firebase";
 
-const screenHeight = Dimensions.get('screen').height;
-const screenWidth = Dimensions.get('window').width;
-
 const LoginScreen = ({ navigation }) => {
 
     const [email, setEmail] = useState("");
@@ -64,6 +61,7 @@ const LoginScreen = ({ navigation }) => {
                                 value={password} 
                                 inputStyle={{ fontFamily:'Regular'}}
                                 onChangeText={ (text) => setPassword(text)} 
+                                onSubmitEditing={signin}
                                 secureTextEntry
                             />   
                             <FontAwesome5 name="lock" size={25} style={ styles.icon } />
